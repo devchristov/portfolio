@@ -5,7 +5,7 @@ function Hero() {
       className="min-h-screen flex items-center bg-black text-white px-6 relative z-0"
     >
       <div className="max-w-6xl mx-auto w-full">
-        <p className="text-gray-400 mb-4">Hello i'm</p>
+        <p className="text-gray-400 mb-4">Hello I'm</p>
 
         <h1 className="text-5xl md:text-7xl font-bold leading-tight">
           Devidson Goenawan
