@@ -16,8 +16,8 @@ function Hero() {
         </h2>
 
         <p className="mt-6 max-w-xl text-gray-400">
-          I'm a frontend developer focused on building clean, responsive and
-          user-friendly web applications using React.
+          Fullstack Web Developer building modern, scalable, and user-focused
+          web applications.
         </p>
 
         <div className="mt-8">
