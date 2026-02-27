@@ -22,6 +22,7 @@ function Skills() {
       category: "Backend",
       skills: [
         { name: "PHP", icon: Server },
+        { name: "Python", icon: Server },
         { name: "CodeIgniter", icon: Server },
         { name: "Laravel", icon: Server },
       ],
@@ -30,6 +31,7 @@ function Skills() {
       category: "Database",
       skills: [
         { name: "MySQL", icon: Database },
+        { name: "SQL", icon: Database },
         { name: "PostgreSQL", icon: Database },
       ],
     },
