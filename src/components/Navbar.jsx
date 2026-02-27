@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Home, User, Code, Folder, Mail } from "lucide-react";
+import profile from "../assets/IMG_9396.JPG";
 
 function Navbar() {
   const [active, setActive] = useState("hero");
@@ -20,8 +22,8 @@ function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => setScrolled(window.scrollY > 50);
-
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener("scroll", handleScroll);
@@ -33,12 +35,30 @@ function Navbar() {
       ? "text-white font-semibold"
       : "text-gray-400 hover:text-white";
 
+  const menuItems = [
+    { id: "hero", label: "Home", icon: Home },
+    { id: "about", label: "About", icon: User },
+    { id: "skills", label: "Skills", icon: Code },
+    { id: "projects", label: "Projects", icon: Folder },
+    { id: "contact", label: "Contact", icon: Mail },
+  ];
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[999] bg-black transition-all duration-300`}
+      className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 ${
+        scrolled ? "bg-black shadow-lg" : "bg-black"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-white font-bold text-lg">Devidson Goenawan</h1>
+        {/* Logo + Profile */}
+        <div className="flex items-center gap-3 cursor-pointer">
+          <img
+            src={profile}
+            alt="Devidson Goenawan"
+            className="w-9 h-9 rounded-full object-cover border border-gray-700 shadow-sm transition hover:scale-105"
+          />
+          <h1 className="text-white font-bold text-lg">Devidson Goenawan</h1>
+        </div>
 
         {/* Hamburger Button */}
         <button
@@ -49,32 +69,20 @@ function Navbar() {
         </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6">
-          <li>
-            <a href="#hero" className={linkClass("hero")}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" className={linkClass("about")}>
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#skills" className={linkClass("skills")}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className={linkClass("projects")}>
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className={linkClass("contact")}>
-              Contact
-            </a>
-          </li>
+        <ul className="hidden md:flex gap-8">
+          {menuItems.map(({ id, label, icon: Icon }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                className={`${linkClass(
+                  id,
+                )} flex items-center gap-2 transition hover:-translate-y-0.5`}
+              >
+                <Icon size={18} className="opacity-80" />
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -85,14 +93,15 @@ function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-4 px-6">
-          {["hero", "about", "skills", "projects", "contact"].map((id) => (
+          {menuItems.map(({ id, label, icon: Icon }) => (
             <li key={id}>
               <a
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
-                className={linkClass(id)}
+                className={`${linkClass(id)} flex items-center gap-2`}
               >
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+                <Icon size={18} className="opacity-80" />
+                {label}
               </a>
             </li>
           ))}

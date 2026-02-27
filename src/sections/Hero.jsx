@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+
 function Hero() {
   return (
     <section
@@ -23,9 +25,13 @@ function Hero() {
         <div className="mt-8">
           <a
             href="#projects"
-            className="border border-white px-6 py-3 hover:bg-white hover:text-black transition"
+            className="inline-flex items-center gap-2 border border-white px-6 py-3 rounded-xl transition-all duration-300 hover:bg-white hover:text-black group"
           >
             View My Work
+            <ArrowRight
+              size={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </a>
         </div>
       </div>
