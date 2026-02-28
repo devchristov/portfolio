@@ -1,38 +1,66 @@
 import {
-  FileCode,
-  Braces,
-  Database,
-  Server,
   Globe,
   Layers,
+  FileCode,
+  Braces,
+  Palette,
+  Server,
+  Database,
+  ShieldCheck,
+  GitBranch,
+  Cpu,
+  Boxes,
+  Wrench,
+  Package,
 } from "lucide-react";
+
+import { motion } from "framer-motion";
 
 function Skills() {
   const skillCategories = [
     {
       category: "Frontend",
+      color: "hover:border-blue-500 hover:bg-blue-500/10",
       skills: [
         { name: "HTML", icon: Globe },
-        { name: "CSS", icon: Layers },
+        { name: "CSS", icon: Palette },
         { name: "JavaScript", icon: FileCode },
-        { name: "React", icon: Braces },
+        { name: "React", icon: Cpu },
+        { name: "Vue.js", icon: Boxes },
+        { name: "Blade", icon: Braces },
+        { name: "Bootstrap", icon: Layers },
+        { name: "Tailwind CSS", icon: Layers },
       ],
     },
     {
       category: "Backend",
+      color: "hover:border-green-500 hover:bg-green-500/10",
       skills: [
         { name: "PHP", icon: Server },
         { name: "Python", icon: Server },
-        { name: "CodeIgniter", icon: Server },
+        { name: "CodeIgniter", icon: Boxes },
         { name: "Laravel", icon: Server },
+        { name: "REST API Development", icon: GitBranch },
+        { name: "MVC Architecture", icon: Boxes },
+        { name: "Authentication & Authorization", icon: ShieldCheck },
       ],
     },
     {
       category: "Database",
+      color: "hover:border-purple-500 hover:bg-purple-500/10", // bisa ganti warna bebas
       skills: [
         { name: "MySQL", icon: Database },
-        { name: "SQL", icon: Database },
         { name: "PostgreSQL", icon: Database },
+        { name: "SQL", icon: Database },
+      ],
+    },
+    {
+      category: "Tools",
+      color: "hover:border-orange-500 hover:bg-orange-500/10",
+      skills: [
+        { name: "Git", icon: GitBranch },
+        { name: "Docker", icon: Package },
+        { name: "Postman", icon: Wrench },
       ],
     },
   ];
@@ -54,13 +82,17 @@ function Skills() {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {section.skills.map(({ name, icon: Icon }, i) => (
-                  <div
+                  <motion.div
                     key={i}
-                    className="flex items-center gap-3 border border-gray-700 rounded-xl p-4 hover:border-white hover:bg-gray-900 transition-all duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    viewport={{ once: true }}
+                    className={`flex items-center gap-3 border border-gray-700 rounded-xl p-4 transition-all duration-300 ${section.color}`}
                   >
                     <Icon size={20} className="text-gray-400" />
                     <span className="text-gray-300">{name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
