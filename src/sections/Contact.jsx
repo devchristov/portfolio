@@ -1,49 +1,56 @@
+import { Mail, Github, Linkedin } from "lucide-react";
+
 function Contact() {
   return (
     <section
       id="contact"
-      className="fade-section min-h-screen bg-black text-white px-6 py-20"
+      className="min-h-screen bg-black text-white px-6 py-20 flex items-center"
     >
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Contact Me</h2>
+      <div className="max-w-4xl mx-auto w-full text-center">
+        <h2 className="text-4xl font-bold mb-6">Let’s Connect</h2>
 
-        <p className="text-gray-400 mb-12">
-          Interested in working together or have a project in mind? Feel free to
-          reach out.
+        <p className="text-gray-400 mb-12 max-w-xl mx-auto">
+          Interested in collaborating, building something impactful, or
+          discussing opportunities? I’m always open to meaningful conversations.
         </p>
 
-        <div className="space-y-4">
-          <p>
-            Email:{" "}
-            <a
-              href="mailto:work.devchristov@gmail.com"
-              className="text-blue-400 hover:underline"
-            >
-              work.devchristov@gmail.com
-            </a>
-          </p>
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-10 space-y-6">
+          <a
+            href="mailto:work.devchristov@gmail.com"
+            className="flex items-center justify-center gap-3 p-4 rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            <Mail size={20} />
+            <span>work.devchristov@gmail.com</span>
+          </a>
 
-          <p>
-            GitHub:{" "}
-            <a
-              href="https://github.com/devchristov"
-              target="_blank"
-              className="text-blue-400 hover:underline"
-            >
-              github.com/devchristov
-            </a>
-          </p>
+          <a
+            href="https://github.com/devchristov"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 p-4 rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            <Github size={20} />
+            <span>github.com/devchristov</span>
+          </a>
 
-          <p>
-            LinkedIn:{" "}
-            <a
-              href="https://linkedin.com/in/devidson-goenawan-536ba2286/"
-              target="_blank"
-              className="text-blue-400 hover:underline"
-            >
-              linkedin.com/in/devidson-goenawan
-            </a>
-          </p>
+          <a
+            href="https://linkedin.com/in/devidson-goenawan-536ba2286/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 p-4 rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            <Linkedin size={20} />
+            <span>linkedin.com/in/devidson-goenawan</span>
+          </a>
+        </div>
+
+        <div className="mt-12">
+          <a
+            href="mailto:work.devchristov@gmail.com"
+            className="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
+          >
+            Send Me an Email
+          </a>
         </div>
       </div>
     </section>
