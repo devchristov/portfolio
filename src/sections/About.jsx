@@ -9,7 +9,6 @@ function About() {
       className="min-h-screen bg-black text-white px-6 py-20 md:py-28 flex items-center"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20">
-        {/* Profile Image */}
         <div className="w-48 h-48 md:w-72 md:h-72 flex-shrink-0">
           <img
             src={profile}
@@ -18,7 +17,6 @@ function About() {
           />
         </div>
 
-        {/* Content */}
         <div className="max-w-3xl text-center md:text-left">
           <p className="inline-block px-4 py-1 text-xs tracking-widest uppercase bg-white/10 rounded-full text-gray-300 mb-6">
             Fullstack Web Developer
@@ -45,7 +43,6 @@ function About() {
             efficient, secure, and built to scale.
           </p>
 
-          {/* Stats */}
           <div className="flex justify-center md:justify-start gap-10 md:gap-16 mt-10">
             <div>
               <p className="text-2xl md:text-3xl font-semibold">5+</p>
@@ -60,7 +57,6 @@ function About() {
 
           <div className="w-full h-px bg-neutral-800 my-10"></div>
 
-          {/* Core Stack */}
           <div>
             <p className="text-lg font-semibold mb-4">Core Stack</p>
 
@@ -76,7 +72,6 @@ function About() {
             </p>
           </div>
 
-          {/* Buttons */}
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center md:justify-start">
             <a
               href={`${baseUrl}assets/files/Devidson-Goenawan.pdf`}

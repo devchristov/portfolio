@@ -47,7 +47,7 @@ function Skills() {
     },
     {
       category: "Database",
-      color: "hover:border-purple-500 hover:bg-purple-500/10", // bisa ganti warna bebas
+      color: "hover:border-purple-500 hover:bg-purple-500/10",
       skills: [
         { name: "MySQL", icon: Database },
         { name: "PostgreSQL", icon: Database },
