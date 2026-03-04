@@ -50,7 +50,7 @@ function About() {
             </div>
 
             <div>
-              <p className="text-2xl md:text-3xl font-semibold">9+</p>
+              <p className="text-2xl md:text-3xl font-semibold">10+</p>
               <p className="text-neutral-500 text-sm">Systems Developed</p>
             </div>
           </div>
