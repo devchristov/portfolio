@@ -60,16 +60,37 @@ function About() {
           <div>
             <p className="text-lg font-semibold mb-4">Core Stack</p>
 
-            <p className="text-neutral-400 text-left md:text-justify">
-              <span className="text-white font-medium">Backend:</span> Laravel,
-              CodeIgniter, PHP <br />
-              <span className="text-white font-medium">Database:</span> MySQL,
-              PostgreSQL <br />
-              <span className="text-white font-medium">Frontend:</span> HTML,
-              CSS, JavaScript, Bootstrap, React <br />
-              <span className="text-white font-medium">Tools:</span> Git,
-              Docker, Postman
-            </p>
+            <div className="text-neutral-400 text-sm md:text-base space-y-3 text-left">
+              {[
+                {
+                  title: "Frontend",
+                  content:
+                    "HTML, CSS, JavaScript, React, Vue.js, Blade, Bootstrap, Tailwind CSS",
+                },
+                {
+                  title: "Backend",
+                  content:
+                    "PHP, Python, Laravel, CodeIgniter, REST API Development, MVC Architecture, Authentication & Authorization",
+                },
+                {
+                  title: "Database",
+                  content: "MySQL, PostgreSQL, SQL",
+                },
+                {
+                  title: "Tools",
+                  content: "Git, Docker, Postman",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-[120px_10px_1fr] gap-2"
+                >
+                  <span className="text-white font-medium">{item.title}</span>
+                  <span>:</span>
+                  <span>{item.content}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center md:justify-start">
