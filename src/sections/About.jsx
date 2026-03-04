@@ -65,16 +65,20 @@ function About() {
                 {
                   title: "Frontend",
                   content:
-                    "HTML, CSS, JavaScript, React, Vue.js, Blade, Bootstrap, Tailwind CSS",
+                    "HTML, CSS, JavaScript (React, Vue.js), Blade, Bootstrap, Tailwind CSS",
                 },
                 {
                   title: "Backend",
-                  content:
-                    "PHP, Python, Laravel, CodeIgniter, REST API Development, MVC Architecture, Authentication & Authorization",
+                  content: "PHP (Laravel, CodeIgniter), Python",
                 },
                 {
                   title: "Database",
-                  content: "MySQL, PostgreSQL, SQL",
+                  content: "MySQL, PostgreSQL",
+                },
+                {
+                  title: "System",
+                  content:
+                    "RESTful API Design, MVC Pattern Implementation, Authentication & Authorization",
                 },
                 {
                   title: "Tools",

@@ -38,11 +38,8 @@ function Skills() {
       skills: [
         { name: "PHP", icon: Server },
         { name: "Python", icon: Server },
-        { name: "CodeIgniter", icon: Boxes },
         { name: "Laravel", icon: Server },
-        { name: "REST API Development", icon: GitBranch },
-        { name: "MVC Architecture", icon: Boxes },
-        { name: "Authentication & Authorization", icon: ShieldCheck },
+        { name: "CodeIgniter", icon: Boxes },
       ],
     },
     {
@@ -51,7 +48,15 @@ function Skills() {
       skills: [
         { name: "MySQL", icon: Database },
         { name: "PostgreSQL", icon: Database },
-        { name: "SQL", icon: Database },
+      ],
+    },
+    {
+      category: "System Architecture",
+      color: "hover:border-cyan-500 hover:bg-cyan-500/10",
+      skills: [
+        { name: "RESTful API Design", icon: GitBranch },
+        { name: "MVC Pattern Implementation", icon: Boxes },
+        { name: "Authentication & Authorization", icon: ShieldCheck },
       ],
     },
     {
