@@ -51,7 +51,7 @@ function Projects() {
 
               <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
 
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-gray-400 mb-8 leading-relaxed text-justify max-w-md">
                 {project.description}
               </p>
 
