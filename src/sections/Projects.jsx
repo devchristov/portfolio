@@ -43,7 +43,6 @@ function Projects() {
               viewport={{ once: true }}
               className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm hover:border-white/30 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500"
             >
-              {/* Title + Featured Badge */}
               <div className="flex justify-between items-start mb-4 gap-4">
                 <h3 className="text-xl md:text-2xl font-semibold">
                   {project.title}
@@ -56,12 +55,10 @@ function Projects() {
                 )}
               </div>
 
-              {/* Description */}
               <p className="text-gray-400 text-sm md:text-base mb-6 md:mb-8 leading-6 md:leading-relaxed">
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
                 {project.tech.map((tech, i) => (
                   <span
@@ -73,14 +70,12 @@ function Projects() {
                 ))}
               </div>
 
-              {/* Internal Note */}
               {!project.demo && !project.github && (
                 <p className="text-xs text-gray-500 mb-6 italic">
                   Internal project – demo unavailable
                 </p>
               )}
 
-              {/* Buttons */}
               <div className="flex flex-wrap gap-4">
                 {project.demo && (
                   <a
