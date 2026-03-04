@@ -13,10 +13,15 @@ function Navbar() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
         });
       },
-      { threshold: 0.6 },
+      {
+        threshold: 0.3,
+        rootMargin: "-100px 0px -100px 0px",
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
