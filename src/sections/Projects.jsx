@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Projects() {
   const projects = [
@@ -9,6 +10,7 @@ function Projects() {
       tech: ["CodeIgniter", "MySQL"],
       demo: null,
       github: null,
+      featured: true,
     },
     {
       title: "Company Profile Website",
@@ -17,6 +19,7 @@ function Projects() {
       tech: ["React", "Tailwind CSS"],
       demo: null,
       github: null,
+      featured: false,
     },
   ];
 
@@ -32,10 +35,20 @@ function Projects() {
 
         <div className="grid md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-white/30 hover:-translate-y-2 hover:shadow-xl hover:shadow-white/5 transition-all duration-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-white/30 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500"
             >
+              {project.featured && (
+                <span className="absolute top-4 right-4 text-xs bg-white text-black px-3 py-1 rounded-full font-semibold">
+                  Featured
+                </span>
+              )}
+
               <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
 
               <p className="text-gray-400 mb-8 leading-relaxed">
@@ -46,7 +59,7 @@ function Projects() {
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs uppercase tracking-wide bg-white/10 text-gray-300 px-3 py-1 rounded-full"
+                    className="text-xs uppercase tracking-wide bg-white/10 text-gray-300 px-3 py-1 rounded-full transition group-hover:bg-white/20"
                   >
                     {tech}
                   </span>
@@ -54,7 +67,7 @@ function Projects() {
               </div>
 
               {!project.demo && !project.github && (
-                <p className="text-xs text-gray-500 mb-6">
+                <p className="text-xs text-gray-500 mb-6 italic">
                   Internal project – demo unavailable
                 </p>
               )}
@@ -84,7 +97,7 @@ function Projects() {
                   </a>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
