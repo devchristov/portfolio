@@ -24,23 +24,35 @@ function About() {
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4">About Me</h2>
 
-          <p className="text-neutral-400 text-base md:text-lg leading-relaxed text-left md:text-justify">
+          <p
+            className="text-neutral-400 text-base md:text-lg leading-relaxed text-left md:text-justify"
+            style={{ textIndent: "2em" }}
+          >
             I am a Fullstack Web Developer focused on building structured,
             secure, and scalable web systems from the ground up. With
             professional experience in government institutions, I develop
             digital solutions that prioritize reliability, long-term
             maintainability, and compliance with institutional standards.
-            <br />
-            <br />
+          </p>
+
+          <p
+            className="text-neutral-400 text-base md:text-lg leading-relaxed text-left md:text-justify"
+            style={{ textIndent: "2em" }}
+          >
             My expertise lies in designing clean architectures, optimizing
             system performance, and ensuring sustainable development practices.
             I have extensive experience using CodeIgniter for enterprise-grade
             systems, while also leveraging modern frameworks such as Laravel to
             build robust and future-ready applications.
-            <br />
-            <br />I continuously adapt to evolving technologies and best
-            practices, ensuring every system I build is not only functional, but
-            efficient, secure, and built to scale.
+          </p>
+
+          <p
+            className="text-neutral-400 text-base md:text-lg leading-relaxed text-left md:text-justify"
+            style={{ textIndent: "2em" }}
+          >
+            I continuously adapt to evolving technologies and best practices,
+            ensuring every system I build is not only functional, but efficient,
+            secure, and built to scale.
           </p>
 
           <div className="flex justify-center md:justify-start gap-10 md:gap-16 mt-10">
