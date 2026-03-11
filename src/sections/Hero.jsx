@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 function Hero() {
   return (
@@ -37,6 +37,7 @@ function Hero() {
             href="#contact"
             className="inline-flex items-center gap-2 border border-gray-600 px-6 py-3 rounded-xl transition-all duration-300 hover:border-white"
           >
+            <Mail size={18} />
             Contact Me
           </a>
         </div>

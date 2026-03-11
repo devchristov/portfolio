@@ -7,7 +7,16 @@ function Projects() {
       title: "Government Internal System",
       description:
         "Designed and developed a web-based internal management system for a government institution to streamline reporting and data processing workflows using MVC architecture and structured database management.",
-      tech: ["CodeIgniter", "MySQL"],
+      tech: [
+        {
+          name: "CodeIgniter",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+        },
+        {
+          name: "MySQL",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        },
+      ],
       demo: null,
       github: null,
       featured: true,
@@ -16,7 +25,16 @@ function Projects() {
       title: "Company Profile Website",
       description:
         "Built a responsive company profile website using modern UI principles, focusing on performance, accessibility, and clean component-based architecture.",
-      tech: ["React", "Tailwind CSS"],
+      tech: [
+        {
+          name: "React",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        },
+        {
+          name: "Tailwind CSS",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+        },
+      ],
       demo: null,
       github: null,
       featured: false,
@@ -26,80 +44,91 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-black text-white px-4 md:px-16 py-20 md:py-24"
+      className="min-h-screen bg-black text-white px-6 py-24"
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-14 md:mb-20 text-center">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
           Selected Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mx-auto md:max-w-lg group relative bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm hover:border-white/30 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500"
+              className="relative rounded-xl p-[1px] bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-cyan-500/40"
             >
-              <div className="flex justify-between items-start mb-4 gap-4">
-                <h3 className="text-xl md:text-2xl font-semibold">
-                  {project.title}
-                </h3>
+              <div className="group bg-black/70 backdrop-blur-xl rounded-xl border border-white/10 p-6 hover:border-blue-400/40 transition-all duration-300">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold">
+                    {project.title}
+                  </h3>
 
-                {project.featured && (
-                  <span className="text-[10px] md:text-xs uppercase tracking-wider bg-white text-black px-3 py-1 rounded-full font-semibold whitespace-nowrap">
-                    Featured
-                  </span>
-                )}
-              </div>
+                  {project.featured && (
+                    <span className="text-xs uppercase bg-white text-black px-3 py-1 rounded-full font-semibold">
+                      Featured
+                    </span>
+                  )}
+                </div>
 
-              <p className="text-gray-400 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-[10px] md:text-xs uppercase tracking-wide bg-white/10 text-gray-300 px-3 py-1 rounded-full group-hover:bg-white/20 transition"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {!project.demo && !project.github && (
-                <p className="text-xs text-gray-500 mb-6 italic">
-                  Internal project – demo unavailable
+                {/* Description */}
+                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                  {project.description}
                 </p>
-              )}
 
-              <div className="flex flex-wrap gap-4 md:mt-4">
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white text-black px-5 py-2 rounded-full text-sm font-medium hover:scale-105 transition"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="flex items-center gap-2 text-xs uppercase tracking-wide bg-white/10 text-gray-300 px-3 py-1 rounded-full"
+                    >
+                      <img
+                        src={tech.logo}
+                        alt={tech.name}
+                        className="w-4 h-4 object-contain"
+                      />
+                      {tech.name}
+                    </span>
+                  ))}
+                </div>
+
+                {!project.demo && !project.github && (
+                  <p className="text-xs text-gray-500 italic">
+                    Internal project – demo unavailable
+                  </p>
                 )}
 
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 border border-white/20 px-5 py-2 rounded-full text-sm hover:border-white hover:bg-white/10 transition"
-                  >
-                    <Github size={16} />
-                    View Code
-                  </a>
-                )}
+                {/* Buttons */}
+                <div className="flex gap-4 mt-6">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-sm"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
+
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 border border-white/20 px-4 py-2 rounded-full text-sm hover:bg-white/10 transition"
+                    >
+                      <Github size={16} />
+                      View Code
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

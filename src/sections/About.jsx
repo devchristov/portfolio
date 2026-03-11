@@ -1,4 +1,5 @@
 import profile from "../assets/IMG_9396.JPG";
+import { Eye, Download } from "lucide-react";
 
 function About() {
   const baseUrl = import.meta.env.BASE_URL;
@@ -114,16 +115,18 @@ function About() {
               href={`${baseUrl}assets/files/Devidson-Goenawan.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-neutral-200 transition text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-neutral-200 transition text-center"
             >
+              <Eye size={18} />
               View CV
             </a>
 
             <a
               href={`${baseUrl}assets/files/Devidson-Goenawan.pdf`}
               download
-              className="px-6 py-3 border border-neutral-700 rounded-lg hover:border-white transition text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-neutral-700 rounded-lg hover:border-white transition text-center"
             >
+              <Download size={18} />
               Download CV
             </a>
           </div>
