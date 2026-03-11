@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Globe,
   Layers,
@@ -12,15 +13,17 @@ import {
   Boxes,
   Wrench,
   Package,
+  ChevronDown,
 } from "lucide-react";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Skills() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const skillCategories = [
     {
       category: "Frontend",
-      color: "hover:border-blue-500 hover:bg-blue-500/10",
       skills: [
         { name: "HTML", icon: Globe },
         { name: "CSS", icon: Palette },
@@ -34,7 +37,6 @@ function Skills() {
     },
     {
       category: "Backend",
-      color: "hover:border-green-500 hover:bg-green-500/10",
       skills: [
         { name: "PHP", icon: Server },
         { name: "Python", icon: Server },
@@ -44,7 +46,6 @@ function Skills() {
     },
     {
       category: "Database",
-      color: "hover:border-purple-500 hover:bg-purple-500/10",
       skills: [
         { name: "MySQL", icon: Database },
         { name: "PostgreSQL", icon: Database },
@@ -52,7 +53,6 @@ function Skills() {
     },
     {
       category: "System Architecture",
-      color: "hover:border-cyan-500 hover:bg-cyan-500/10",
       skills: [
         { name: "RESTful API Design", icon: GitBranch },
         { name: "MVC Pattern Implementation", icon: Boxes },
@@ -61,7 +61,6 @@ function Skills() {
     },
     {
       category: "Tools",
-      color: "hover:border-orange-500 hover:bg-orange-500/10",
       skills: [
         { name: "Git", icon: GitBranch },
         { name: "Docker", icon: Package },
@@ -70,36 +69,66 @@ function Skills() {
     },
   ];
 
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section
       id="skills"
-      className="min-h-screen bg-black text-white px-6 py-20"
+      className="min-h-screen bg-black text-white px-6 py-24"
     >
-      <div className="max-w-5xl mx-auto w-full">
-        <h2 className="text-4xl font-bold mb-16">Skills</h2>
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
+          Skills
+        </h2>
 
-        <div className="space-y-16">
+        <div className="space-y-4">
           {skillCategories.map((section, index) => (
-            <div key={index}>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-300">
-                {section.category}
-              </h3>
+            <div
+              key={index}
+              className="border border-white/10 rounded-xl overflow-hidden"
+            >
+              {/* HEADER */}
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition"
+              >
+                <span className="text-lg font-semibold">
+                  {section.category}
+                </span>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {section.skills.map(({ name, icon: Icon }, i) => (
+                <ChevronDown
+                  className={`transition-transform ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {/* CONTENT */}
+              <AnimatePresence>
+                {openIndex === index && (
                   <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    viewport={{ once: true }}
-                    className={`flex items-center gap-3 border border-gray-700 rounded-xl p-4 transition-all duration-300 ${section.color}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-5 pb-5"
                   >
-                    <Icon size={20} className="text-gray-400" />
-                    <span className="text-gray-300">{name}</span>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      {section.skills.map(({ name, icon: Icon }, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-3 border border-white/10 rounded-lg p-3 bg-white/5"
+                        >
+                          <Icon size={18} className="text-gray-300" />
+                          <span className="text-sm text-gray-300">{name}</span>
+                        </div>
+                      ))}
+                    </div>
                   </motion.div>
-                ))}
-              </div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
