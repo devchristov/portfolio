@@ -20,17 +20,17 @@ function Contact() {
             className="flex items-center justify-center gap-3 p-4 rounded-xl hover:bg-white/10 transition-all duration-300"
           >
             <Mail size={20} />
-            <span>work.devchristov@gmail.com</span>
+            <span>devchristov@gmail.com</span>
           </a>
 
           <a
-            href="https://github.com/devchristov"
+            href="https://github.com/devtryr"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 p-4 rounded-xl hover:bg-white/10 transition-all duration-300"
           >
             <Github size={20} />
-            <span>github.com/devchristov</span>
+            <span>github.com/devtryr</span>
           </a>
 
           <a
